@@ -24,7 +24,9 @@ class App extends Component {
     return(
       <main>
         <Nav />
-        <Feed />
+        <Feed 
+        recipes={this.state.recipes}
+        />
         <Footer />
       </main>
     )
