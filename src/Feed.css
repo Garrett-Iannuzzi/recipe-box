@@ -1,0 +1,10 @@
+section {
+  border-left: solid 2px black;
+  border-right: solid 2px black;
+  height: 100vh;
+  width: 55%;
+}
+
+.section-title {
+  text-align: center;
+}
