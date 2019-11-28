@@ -1,0 +1,51 @@
+.article-card {
+  border: solid 1px black;
+  margin: .5em;
+  width: 95%;
+}
+
+.card-title {
+  font-size: 2em;
+  text-align: center;
+}
+
+.card-img {
+  display: block;
+  height: 8em;
+  margin: 0 auto;
+  margin-bottom: 1em;
+  width: 8em;
+}
+
+.directions-btn {
+  border-radius: .5em;
+  cursor: pointer;
+  height: 2em;
+  font-size: 1em;
+  display: block;
+  margin: 0 auto;
+  width: 8em;
+}
+
+.card-ul {
+  list-style-type: none;
+}
+
+.card-li {
+  text-align: center;
+  font-size: 1.2em;
+  margin: 0 auto;
+  margin-bottom: 1em;
+  text-decoration: none;
+}
+
+.delete-recipe-btn {
+  border-radius: .5em;
+  cursor: pointer;
+  height: 2em;
+  font-size: 1em;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 1em;
+  width: 8em;
+}
