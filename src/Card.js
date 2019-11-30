@@ -18,3 +18,7 @@ const Card = ({ title, link, ingredients, img }) => {
 }
 
 export default Card;  
+
+
+// need to pass in {deleteRecipe} on line 4 
+//onClick={ (e) => deleteRecipe(e.target) }

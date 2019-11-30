@@ -21,6 +21,10 @@ class App extends Component {
   addRecipe = (recipe) => {
     this.setState( {recipes: [...this.state.recipes, recipe] })
   }
+
+  // deleteRecipe = (cardToDelete) => {
+  //   const matchedCard = this.state.recipes.filter(recipe => )
+  // }
   
   render() {
     return(
@@ -30,6 +34,7 @@ class App extends Component {
         />
         <Feed 
         recipes={this.state.recipes}
+        // deleteRecipe={this.deleteRecipe}
         />
         <Footer />
       </main>

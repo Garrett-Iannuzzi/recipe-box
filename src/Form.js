@@ -22,6 +22,7 @@ class Form extends Component {
     this.props.addRecipe(newRecipe);
     this.clearInputs()
   }
+  //it's not adding an id, it is just coming in as '  new prop = ""  '.....
 
   clearInputs = () => {
     this.setState( { title: '', ingredients: '', img: '', directions: '' })

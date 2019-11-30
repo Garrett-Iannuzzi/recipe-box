@@ -2,7 +2,7 @@ import React from 'react';
 import './Feed.css';
 import Card from './Card';
 
-const Feed = ({ recipes }) => {
+const Feed = ({ recipes, deleteRecipe }) => {
   const recipesCards = recipes.map(recipe => {
     return(
         <Card
@@ -10,6 +10,7 @@ const Feed = ({ recipes }) => {
           link={recipe.href}
           ingredients={recipe.ingredients}
           img={recipe.thumbnail}
+          // deleteRecipe={deleteRecipe}
         />
     )
   })
