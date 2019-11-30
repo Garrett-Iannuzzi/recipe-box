@@ -17,12 +17,17 @@ class App extends Component {
     .then(response => response.json())
     .then(data => this.setState({ recipes: data.results }))
   }
+
+  addRecipe = (recipe) => {
+    this.setState( {recipes: [...this.state.recipes, recipe] })
+  }
   
   render() {
-    console.log(this.state)
     return(
       <main>
-        <Nav />
+        <Nav 
+        addRecipe={this.addRecipe}
+        />
         <Feed 
         recipes={this.state.recipes}
         />

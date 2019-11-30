@@ -2,11 +2,13 @@ import React from 'react';
 import'./Nav.css';
 import Form from './Form';
 
-const Nav = () => {
+const Nav = ( { addRecipe } ) => {
   return(
     <nav>
       <h1 className='nav-title'>RecipeBox</h1>
-      <Form />
+      <Form
+      addRecipe={addRecipe} 
+      />
     </nav>
   )
 }

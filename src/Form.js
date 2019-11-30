@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import './Form.css';
 
 class Form extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
       this.state = {
-        name: '',
+        title: '',
         ingredients: '',
         img: '',
         directions: ''
@@ -17,7 +17,14 @@ class Form extends Component {
   }
 
   submitRecipe = (e) => {
+    e.preventDefault();
+    const newRecipe = { id: Date.now(), ...this.state };
+    this.props.addRecipe(newRecipe);
+    this.clearInputs()
+  }
 
+  clearInputs = () => {
+    this.setState( { title: '', ingredients: '', img: '', directions: '' })
   }
 
   render() {
@@ -26,14 +33,16 @@ class Form extends Component {
         <form>
           <h3 className='form-h3'>Recipe Name</h3>
           <input className='form-input'
+          key='title'
           type='text'
-          name='name'
+          name='title'
           value={this.state.name}
           placeholder='Recipe Name'
           onChange={ e => this.handleChange(e) }
           />
           <h3 className='form-h3'>Ingredients</h3>
           <input className='form-input'
+          key='ingredients'
           name='ingredients'
           type='text'
           value={this.state.ingredients}
@@ -42,6 +51,7 @@ class Form extends Component {
           />
           <h3 className='form-h3'>Image URL</h3>
           <input className='form-input'
+          key='img'
           name='img'
           type='text'
           value={this.state.img}
@@ -50,6 +60,7 @@ class Form extends Component {
           />
           <h3 className='form-h3'>Link to Directions</h3>
           <input className='form-input'
+          key='directions'
           name='directions'
           type='text'
           value={this.state.directions}
