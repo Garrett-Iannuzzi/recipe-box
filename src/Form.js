@@ -11,15 +11,23 @@ class Form extends Component {
 
   render() {
     return(
-      <form>
-        <input 
-        />
-        <input 
-        />
-        <input 
-        />
-        <button className='add-recipe-btn'>Add Recipe</button>
-      </form>
+      <div>
+        <form>
+          <h3 className='form-h3'>Recipe Name</h3>
+          <input className='form-input'
+          />
+          <h3 className='form-h3'>Ingrdients</h3>
+          <input className='form-input'
+          />
+          <h3 className='form-h3'>Image URL</h3>
+          <input className='form-input'
+          />
+          <h3 className='form-h3'>Link to Directions</h3>
+          <input className='form-input'
+          />
+          <button className='add-recipe-btn'>Add Recipe</button>
+        </form>
+      </div>
     )
   }
 }

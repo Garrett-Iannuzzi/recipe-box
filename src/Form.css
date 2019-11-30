@@ -1,0 +1,27 @@
+form {
+  display: flex;
+  flex-direction: column;
+  margin: 1em;
+  padding: .5em;
+  border: solid 1px black;
+}
+
+.form-h3 {
+  text-align: center;
+}
+
+.form-input {
+  height: 4em;
+}
+
+.add-recipe-btn {
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.5em;
+  height: 2em;
+  margin-top: 2em;
+}
+
+.add-recipe-btn:hover {
+  background-color: darkgrey;
+}
