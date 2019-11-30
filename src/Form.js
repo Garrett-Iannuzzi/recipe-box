@@ -12,6 +12,14 @@ class Form extends Component {
       }
   }
 
+  handleChange = (e) => {
+    this.setState( { [e.target.name]: e.target.value })
+  }
+
+  submitRecipe = (e) => {
+
+  }
+
   render() {
     return(
       <div>
@@ -22,6 +30,7 @@ class Form extends Component {
           name='name'
           value={this.state.name}
           placeholder='Recipe Name'
+          onChange={ e => this.handleChange(e) }
           />
           <h3 className='form-h3'>Ingredients</h3>
           <input className='form-input'
@@ -29,20 +38,23 @@ class Form extends Component {
           type='text'
           value={this.state.ingredients}
           placeholder='Recipe Ingredients'
+          onChange={ e => this.handleChange(e) }
           />
           <h3 className='form-h3'>Image URL</h3>
           <input className='form-input'
+          name='img'
           type='text'
           value={this.state.img}
           placeholder='Add An Image'
-          name='img'
+          onChange={ e => this.handleChange(e) }
           />
           <h3 className='form-h3'>Link to Directions</h3>
           <input className='form-input'
+          name='directions'
           type='text'
           value={this.state.directions}
           placeholder='Recipe Directions'
-          name='directions'
+          onChange={ e => this.handleChange(e) }
           />
           <button className='add-recipe-btn' onClick={ (e) => this.submitRecipe(e) } >Add Recipe</button>
         </form>
