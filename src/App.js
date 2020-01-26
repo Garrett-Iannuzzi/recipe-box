@@ -1,45 +1,36 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import Nav from './Nav';
 import Feed from './Feed';
 import Footer from './Footer';
 
-class App extends Component {
-  constructor() {
-    super()
-    this.state = {
-      recipes: []
-    }
-  }
-  
-  componentDidMount() {
-    fetch('http://www.recipepuppy.com/api/')
+
+const App = () => {
+  const [ recipes, getRecipies ] = useState([])
+  console.log(recipes)
+
+useEffect(() => {
+  fetch('http://www.recipepuppy.com/api/')
     .then(response => response.json())
-    .then(data => this.setState({ recipes: data.results }))
+    .then(data => getRecipies(data.results))
+}, []);
+
+
+  const addRecipe = (newRecipe) => {
+    return getRecipies([ ...recipes, newRecipe ])
   }
 
-  addRecipe = (recipe) => {
-    this.setState( {recipes: [...this.state.recipes, recipe] })
-  }
-
-  // deleteRecipe = (cardToDelete) => {
-  //   const matchedCard = this.state.recipes.filter(recipe => )
-  // }
-  
-  render() {
-    return(
-      <main>
-        <Nav 
-        addRecipe={this.addRecipe}
-        />
-        <Feed 
-        recipes={this.state.recipes}
-        // deleteRecipe={this.deleteRecipe}
-        />
-        <Footer />
-      </main>
-    )
-  }
+  return(
+    <main>
+      <Nav
+      addRecipe={addRecipe}
+      />
+      <Feed 
+      recipes={recipes}
+      />
+      <Footer />
+    </main>
+  )
 }
 
 export default App;
