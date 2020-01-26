@@ -1,6 +1,6 @@
 import React from 'react';
 import './Feed.css';
-import Card from './Card';
+import Card from '../Card/Card';
 
 const Feed = ({ recipes, deleteRecipe }) => {
   const recipesCards = recipes.map(recipe => {

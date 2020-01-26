@@ -1,6 +1,6 @@
 import React from 'react';
 import'./Nav.css';
-import Form from './Form';
+import Form from '../Form/Form';
 
 const Nav = ( { addRecipe } ) => {
   return(

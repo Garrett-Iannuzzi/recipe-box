@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import Nav from './Nav';
-import Feed from './Feed';
-import Footer from './Footer';
+import Nav from '../Nav/Nav';
+import Feed from '../Feed/Feed';
+import Footer from '../Footer/Footer';
 
 
 const App = () => {
