@@ -7,14 +7,12 @@ import Footer from './Footer';
 
 const App = () => {
   const [ recipes, getRecipies ] = useState([])
-  console.log(recipes)
 
-useEffect(() => {
-  fetch('http://www.recipepuppy.com/api/')
-    .then(response => response.json())
-    .then(data => getRecipies(data.results))
-}, []);
-
+  useEffect(() => {
+    fetch('http://www.recipepuppy.com/api/')
+      .then(response => response.json())
+      .then(data => getRecipies(data.results))
+  }, []);
 
   const addRecipe = (newRecipe) => {
     return getRecipies([ ...recipes, newRecipe ])

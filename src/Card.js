@@ -14,11 +14,6 @@ const Card = ({ title, link, ingredients, img }) => {
       <button className='delete-recipe-btn'>GROSS!</button>
     </article>
   )
-
 }
 
 export default Card;  
-
-
-// need to pass in {deleteRecipe} on line 4 
-//onClick={ (e) => deleteRecipe(e.target) }

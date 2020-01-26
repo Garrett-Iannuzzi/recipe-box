@@ -1,78 +1,71 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import './Form.css';
 
-class Form extends Component {
-  constructor(props) {
-    super(props)
-      this.state = {
-        title: '',
-        ingredients: '',
-        img: '',
-        directions: ''
-      }
-  }
+const Form = (props) => {
+  
+  const { addRecipe } = props;
+  const [ title, setTitle ] = useState('');
+  const [ ingredients, setIngredients ] = useState('');
+  const [ img, setImg ] = useState('');
+  const [ directions, setDirections ] = useState('');
 
-  handleChange = (e) => {
-    this.setState( { [e.target.name]: e.target.value })
-  }
-
-  submitRecipe = (e) => {
+  const submitRecipe = (e) => {
     e.preventDefault();
-    const newRecipe = { id: Date.now(), ...this.state };
-    this.props.addRecipe(newRecipe);
-    this.clearInputs()
-  }
-  //it's not adding an id, it is just coming in as '  new prop = ""  '.....
-
-  clearInputs = () => {
-    this.setState( { title: '', ingredients: '', img: '', directions: '' })
+    const newRecipe = { id: Date.now(), title, ingredients, img, directions };
+    addRecipe(newRecipe);
+    clearInputs()
   }
 
-  render() {
-    return(
-      <div>
-        <form>
-          <h3 className='form-h3'>Recipe Name</h3>
-          <input className='form-input'
-          key='title'
-          type='text'
-          name='title'
-          value={this.state.name}
-          placeholder='Recipe Name'
-          onChange={ e => this.handleChange(e) }
-          />
-          <h3 className='form-h3'>Ingredients</h3>
-          <input className='form-input'
-          key='ingredients'
-          name='ingredients'
-          type='text'
-          value={this.state.ingredients}
-          placeholder='Recipe Ingredients'
-          onChange={ e => this.handleChange(e) }
-          />
-          <h3 className='form-h3'>Image URL</h3>
-          <input className='form-input'
-          key='img'
-          name='img'
-          type='text'
-          value={this.state.img}
-          placeholder='Add An Image'
-          onChange={ e => this.handleChange(e) }
-          />
-          <h3 className='form-h3'>Link to Directions</h3>
-          <input className='form-input'
-          key='directions'
-          name='directions'
-          type='text'
-          value={this.state.directions}
-          placeholder='Recipe Directions'
-          onChange={ e => this.handleChange(e) }
-          />
-          <button className='add-recipe-btn' onClick={ (e) => this.submitRecipe(e) } >Add Recipe</button>
-        </form>
-      </div>
-    )
+  const clearInputs = () => {
+    setTitle('');
+    setIngredients('');
+    setDirections('');
+    setImg('');
   }
+
+  return(
+    <div>
+      <form>
+        <h3 className='form-h3'>Recipe Name</h3>
+        <input className='form-input'
+        key='title'
+        type='text'
+        name='title'
+        value={title}
+        placeholder='Recipe Name'
+        onChange={ e => setTitle(e.target.value) }
+        />
+        <h3 className='form-h3'>Ingredients</h3>
+        <input className='form-input'
+        key='ingredients'
+        name='ingredients'
+        type='text'
+        value={ingredients}
+        placeholder='Recipe Ingredients'
+        onChange={ e => setIngredients(e.target.value) }
+        />
+        <h3 className='form-h3'>Image URL</h3>
+        <input className='form-input'
+        key='img'
+        name='img'
+        type='text'
+        value={img}
+        placeholder='Add An Image'
+        onChange={ e => setImg(e.target.value) }
+        />
+        <h3 className='form-h3'>Link to Directions</h3>
+        <input className='form-input'
+        key='directions'
+        name='directions'
+        type='text'
+        value={directions}
+        placeholder='Recipe Directions'
+        onChange={ e => setDirections(e) }
+        />
+        <button className='add-recipe-btn' onClick={ (e) => submitRecipe(e) } >Add Recipe</button>
+      </form>
+    </div>
+  )
 }
 
 export default Form;

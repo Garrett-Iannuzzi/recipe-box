@@ -10,7 +10,6 @@ const Feed = ({ recipes, deleteRecipe }) => {
           link={recipe.href}
           ingredients={recipe.ingredients}
           img={recipe.thumbnail}
-          // deleteRecipe={deleteRecipe}
         />
     )
   })
